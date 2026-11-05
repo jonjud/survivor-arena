@@ -23,3 +23,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=854761197]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
