@@ -6,6 +6,8 @@
 size = Vector2(6, 6)
 
 [node name="Projectile" type="Area2D" unique_id=301750227]
+collision_layer = 0
+collision_mask = 6
 script = ExtResource("1_xebok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=998480824]

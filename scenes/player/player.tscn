@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D" unique_id=1009051723]
+collision_mask = 3
 script = ExtResource("1_8afob")
 projectile_scene = ExtResource("2_dovo2")
 
