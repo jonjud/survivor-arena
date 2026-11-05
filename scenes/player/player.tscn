@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://c6qudl3bil3e2"]
 
+[ext_resource type="Script" uid="uid://cxa81nviecxsi" path="res://scripts/player/player.gd" id="1_8afob"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D" unique_id=1009051723]
+script = ExtResource("1_8afob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626594305]
 shape = SubResource("RectangleShape2D_htemk")
