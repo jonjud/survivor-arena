@@ -49,11 +49,6 @@ func _on_died() -> void:
 	queue_free()
 
 
-# NEW ปุ่มทดสอบชั่วคราว (แทน debug_stun) ลบทิ้งตอนผูกกับกระสุน
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_damage"):
-		_health.take_damage(1)
-
 
 func distance_to_target() -> float:
 	if target == null:
