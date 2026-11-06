@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cawaim5v1cdhy" path="res://scenes/ui/GameOverScreen.tscn" id="3_sugp2"]
 [ext_resource type="Resource" uid="uid://dwplef3fmmlra" path="res://resources/enemy_runner.tres" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://bqkj8mu1jld8s" path="res://resources/enemy_tank.tres" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://ddqrvkbe18ph6" path="res://scripts/enemies/wave_spawner.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://b0kh54hy5m40h" path="res://scripts/enemies/enemy_data.gd" id="8_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(32, 96)
@@ -37,15 +39,23 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Enemies" parent="." unique_id=1902566483 instance=ExtResource("2_0wfyh")]
+visible = false
 position = Vector2(445, 191)
 data = ExtResource("3_jyhfs")
 
 [node name="GameOverScreen" parent="." unique_id=327024309 instance=ExtResource("3_sugp2")]
 
 [node name="Enemies2" parent="." unique_id=1899620317 instance=ExtResource("2_0wfyh")]
+visible = false
 position = Vector2(284, 81)
 data = ExtResource("5_tefeu")
 
 [node name="Enemies3" parent="." unique_id=496606474 instance=ExtResource("2_0wfyh")]
+visible = false
 position = Vector2(420, 103)
 data = ExtResource("6_o6xl0")
+
+[node name="WaveSpawner" type="Node2D" parent="." unique_id=75037555]
+script = ExtResource("7_o6xl0")
+enemy_scene = ExtResource("2_0wfyh")
+enemy_types = Array[ExtResource("8_tipki")]([ExtResource("3_jyhfs"), ExtResource("5_tefeu"), ExtResource("6_o6xl0")])
