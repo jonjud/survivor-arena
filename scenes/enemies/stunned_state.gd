@@ -12,7 +12,7 @@ var _timer: float = 0.0
 func enter() -> void:
 	_enemy.velocity = Vector2.ZERO
 	_timer = stun_duration
-	_enemy.modulate = Color(1, 1, 0.4)  # ย้อมเหลืองให้เห็นว่ากำลัง stun
+	_enemy.modulate = Color(1, 1, 1, 0.4)  # จางลงให้เห็นว่ากำลัง stun
 
 
 func exit() -> void:
