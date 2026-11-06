@@ -19,3 +19,20 @@ layout_mode = 2
 max_value = 5.0
 value = 5.0
 show_percentage = false
+
+[node name="TopRight" type="MarginContainer" parent="." unique_id=1258332485]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="WaveLabel" type="Label" parent="TopRight" unique_id=463522626]
+layout_mode = 2
+text = "Wave 1"
+horizontal_alignment = 2

@@ -41,7 +41,7 @@ grow_vertical = 2
 
 [node name="GameOverScreen" parent="." unique_id=327024309 instance=ExtResource("3_sugp2")]
 
-[node name="WaveSpawner" type="Node2D" parent="." unique_id=75037555]
+[node name="WaveSpawner" type="Node2D" parent="." unique_id=75037555 groups=["wave_spawner"]]
 script = ExtResource("7_o6xl0")
 enemy_scene = ExtResource("2_0wfyh")
 waves = Array[ExtResource("8_ya4ey")]([ExtResource("9_eb6dy"), ExtResource("10_trceg"), ExtResource("11_a8y0u")])
