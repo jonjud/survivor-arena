@@ -1,20 +1,31 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var speed: float = 60.0
 @export var attack_range: float = 24.0
-@export var damage: int = 1  # NEW ดาเมจต่อการโจมตี
+@export var data: EnemyData
 var target: Node2D
+var speed: float
+var damage: int
 
 @onready var _state_machine: StateMachine = $StateMachine
-@onready var _health: HealthComponent = $HealthComponent  # NEW
-
+@onready var _health: HealthComponent = $HealthComponent
+@onready var _color_rect: ColorRect = $ColorRect
 
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player") as Node2D
-	_health.damaged.connect(_on_damaged)  # NEW
-	_health.died.connect(_on_died)        # NEW
+	_apply_data()
+	_health.damaged.connect(_on_damaged)  
+	_health.died.connect(_on_died)  
 
+func _apply_data() -> void:
+	if data == null:
+		push_warning("Enemy: ไม่ได้ใส่ EnemyData")
+		return
+	speed = data.speed
+	damage = data.damage
+	_health.max_health = data.max_health
+	_health.current_health = data.max_health
+	_color_rect.color = data.color
 
 func stun() -> void:
 	_state_machine.transition_to(&"Stunned")
