@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvu2pj33cp6jq" path="res://scripts/core/state_machine.gd" id="1_31ocp"]
 [ext_resource type="Script" uid="uid://c85kle2ijik5n" path="res://scenes/enemies/enemy.gd" id="1_ayqi8"]
 [ext_resource type="Script" uid="uid://bwhd1wd8gigys" path="res://scripts/enemies/chase_state.gd" id="2_ayqi8"]
+[ext_resource type="Script" uid="uid://dbowrs87ka52x" path="res://scenes/enemies/attack_state.gd" id="4_ctrou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
@@ -35,3 +36,6 @@ initial_state = NodePath("Chase")
 
 [node name="Chase" type="Node" parent="StateMachine" unique_id=248789849]
 script = ExtResource("2_ayqi8")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=122398818]
+script = ExtResource("4_ctrou")
