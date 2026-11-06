@@ -21,5 +21,8 @@ func physics_update(delta: float) -> void:
 		return
 	_timer -= delta
 	if _timer <= 0.0:
-		print("โจมตี!")  # ชั่วคราว จะแทนด้วยดาเมจจริงทีหลัง
+		# 🆕 ทำดาเมจจริงให้เป้าหมาย (หา HealthComponent จากชื่อ node)
+		var health: HealthComponent = _enemy.target.get_node_or_null("HealthComponent")
+		if health:
+			health.take_damage(_enemy.damage)
 		_timer = attack_interval

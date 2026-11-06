@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cawaim5v1cdhy"]
+
+[ext_resource type="Script" uid="uid://bmtuq72uxxuya" path="res://scripts/ui/game_over_screen.gd" id="1_0pcqs"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=327024309]
+script = ExtResource("1_0pcqs")
+
+[node name="Control" type="Control" parent="." unique_id=135401378]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1997147393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2108209544]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Control/VBoxContainer" unique_id=648640360]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="Control/VBoxContainer" unique_id=1873083440]
+layout_mode = 2
+text = "Restart Button"

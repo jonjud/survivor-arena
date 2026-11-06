@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed: float = 60.0
 @export var attack_range: float = 24.0
-
+@export var damage: int = 1  # NEW ดาเมจต่อการโจมตี
 var target: Node2D
 
 @onready var _state_machine: StateMachine = $StateMachine
