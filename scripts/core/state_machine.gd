@@ -41,3 +41,7 @@ func _on_state_transitioned(next_state_name: StringName) -> void:
 	current_state.exit()
 	current_state = next
 	current_state.enter()
+
+ #New สั่งเปลี่ยน state จากภายนอก (ใช้ชื่อ node เหมือนสัญญาณ)
+func transition_to(state_name: StringName) -> void:
+	_on_state_transitioned(state_name)
