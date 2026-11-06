@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cawaim5v1cdhy" path="res://scenes/ui/GameOverScreen.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://ddqrvkbe18ph6" path="res://scripts/enemies/wave_spawner.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://b2eu7e3eok2pb" path="res://scripts/enemies/wave_data.gd" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cd505y8ttfs32" path="res://scenes/ui/HUD.tscn" id="9_85g3d"]
 [ext_resource type="Resource" uid="uid://detgpj2a5wwk0" path="res://resources/wave_1.tres" id="9_eb6dy"]
 [ext_resource type="Resource" uid="uid://vqrpw6k4seep" path="res://resources/wave_2.tres" id="10_trceg"]
 [ext_resource type="Resource" uid="uid://df22bablhln6r" path="res://resources/wave_3.tres" id="11_a8y0u"]
@@ -44,3 +45,5 @@ grow_vertical = 2
 script = ExtResource("7_o6xl0")
 enemy_scene = ExtResource("2_0wfyh")
 waves = Array[ExtResource("8_ya4ey")]([ExtResource("9_eb6dy"), ExtResource("10_trceg"), ExtResource("11_a8y0u")])
+
+[node name="Hud" parent="." unique_id=661936642 instance=ExtResource("9_85g3d")]
