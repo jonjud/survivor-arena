@@ -3,11 +3,14 @@ extends CanvasLayer
 ## แสดง HP bar ของผู้เล่น โดยฟัง signal ไม่ดึงค่าเอง
 
 @onready var _health_bar: ProgressBar = $MarginContainer/HealthBar
-@onready var _wave_label: Label = $TopRight/WaveLabel
+@onready var _wave_label: Label = $TopRight/VBoxContainer/WaveLabel  #NEW path ใหม่
+@onready var _score_label: Label = $TopRight/VBoxContainer/ScoreLabel  #NEW
+
 
 func _ready() -> void:
 	_connect_player()
-	_connect_spawner()  # NEW
+	_connect_spawner()
+	_connect_score()  # NEW
 
 
 func _connect_player() -> void:
@@ -35,6 +38,19 @@ func _on_health_changed(current: int, maximum: int) -> void:
 	_health_bar.max_value = maximum
 	_health_bar.value = current
 
+# NEW
+func _connect_score() -> void:
+	var keeper: ScoreKeeper = get_tree().get_first_node_in_group("score_keeper") as ScoreKeeper
+	if keeper == null:
+		push_warning("HUD: ไม่พบ ScoreKeeper ใน group 'score_keeper'")
+		return
+	keeper.score_changed.connect(_on_score_changed)
+	_on_score_changed(keeper.score)
+
+
+# NEW
+func _on_score_changed(score: int) -> void:
+	_score_label.text = "Score: %d" % score
 
 # NEW
 func _on_wave_started(wave: int) -> void:
