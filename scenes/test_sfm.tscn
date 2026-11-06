@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4ouwnpfsh7r2"]
+
+[ext_resource type="Script" uid="uid://c2wy054qa64e2" path="res://scripts/test_sfm.gd" id="1_flfqj"]
+[ext_resource type="Script" uid="uid://bvu2pj33cp6jq" path="res://scripts/core/state_machine.gd" id="2_yy37g"]
+[ext_resource type="Script" uid="uid://bcgwri4k5tebw" path="res://scripts/test_idle.gd" id="3_3gru7"]
+[ext_resource type="Script" uid="uid://dkvu6flh2ekko" path="res://scripts/test_walk.gd" id="4_8u04w"]
+
+[node name="TestSFM" type="Node" unique_id=2018870867]
+script = ExtResource("1_flfqj")
+
+[node name="StateMachine" type="Node" parent="." unique_id=334879661 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_yy37g")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=751612530]
+script = ExtResource("3_3gru7")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=589028268]
+script = ExtResource("4_8u04w")

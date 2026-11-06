@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://7coaacbh1ss1"]
+
+[ext_resource type="Script" uid="uid://bvu2pj33cp6jq" path="res://scripts/core/state_machine.gd" id="1_31ocp"]
+[ext_resource type="Script" uid="uid://c85kle2ijik5n" path="res://scenes/enemies/enemy.gd" id="1_ayqi8"]
+[ext_resource type="Script" uid="uid://bwhd1wd8gigys" path="res://scripts/enemies/chase_state.gd" id="2_ayqi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(16, 16)
+
+[node name="Enemies" type="CharacterBody2D" unique_id=1902566483]
+script = ExtResource("1_ayqi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105163374]
+shape = SubResource("RectangleShape2D_htemk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1328571154]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StateMachine" type="Node" parent="." unique_id=2033876183]
+script = ExtResource("1_31ocp")
+
+[node name="Node" type="Node" parent="StateMachine" unique_id=248789849]
+script = ExtResource("2_ayqi8")
