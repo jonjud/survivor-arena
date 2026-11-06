@@ -3,9 +3,9 @@ extends CanvasLayer
 ## แสดง HP bar ของผู้เล่น โดยฟัง signal ไม่ดึงค่าเอง
 
 @onready var _health_bar: ProgressBar = $MarginContainer/HealthBar
-@onready var _wave_label: Label = $TopRight/VBoxContainer/WaveLabel  #NEW path ใหม่
-@onready var _score_label: Label = $TopRight/VBoxContainer/ScoreLabel  #NEW
-
+@onready var _wave_label: Label = $TopRight/VBoxContainer/WaveLabel  
+@onready var _score_label: Label = $TopRight/VBoxContainer/ScoreLabel  
+@onready var _best_label: Label = $TopRight/VBoxContainer/BestLabel #NEW
 
 func _ready() -> void:
 	_connect_player()
@@ -46,12 +46,17 @@ func _connect_score() -> void:
 		return
 	keeper.score_changed.connect(_on_score_changed)
 	_on_score_changed(keeper.score)
+	keeper.high_score_changed.connect(_on_high_score_changed)  # NEW
+	_on_high_score_changed(keeper.high_score)                  # NEW
 
 
-# NEW
+
 func _on_score_changed(score: int) -> void:
 	_score_label.text = "Score: %d" % score
 
-# NEW
 func _on_wave_started(wave: int) -> void:
 	_wave_label.text = "Wave %d" % wave
+
+# NEW
+func _on_high_score_changed(high_score: int) -> void:
+	_best_label.text = "Best: %d" % high_score
