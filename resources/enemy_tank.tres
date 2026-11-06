@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bqkj8mu1jld8s"]
+
+[ext_resource type="Script" uid="uid://b0kh54hy5m40h" path="res://scripts/enemies/enemy_data.gd" id="1_m1e2w"]
+
+[resource]
+script = ExtResource("1_m1e2w")
+display_name = "Tank"
+max_health = 8
+speed = 35.0
+damage = 2
+color = Color(0.9019608, 0.4117647, 0.98039216, 1)
+metadata/_custom_type_script = "uid://b0kh54hy5m40h"
