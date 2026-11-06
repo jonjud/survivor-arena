@@ -8,7 +8,8 @@
 ## Status
 - [x] v0.1: ผู้เล่นเดิน 8 ทิศ, กล้องตาม, ยิงกระสุนไปทางเมาส์
 - [x] v0.2: ศัตรู + State machine (Chase/Attack/Stunned) + HealthComponent + Game Over
-- [ ] v0.3: Spawner + Resource (EnemyData, WaveData) + UI + high score
+- [x] v0.3: EnemyData/WaveData (Resource) + WaveSpawner + HUD + high score
+- [ ] v0.4: Polish + Release
 
 ## Tech
 - Godot 4 / GDScript (static typing)
