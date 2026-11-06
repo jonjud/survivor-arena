@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://doj1c0i357fbt"]
 
 [ext_resource type="PackedScene" uid="uid://c6qudl3bil3e2" path="res://scenes/player/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://7coaacbh1ss1" path="res://scenes/enemies/enemies.tscn" id="2_0wfyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(32, 96)
 
 [node name="main" type="Node2D" unique_id=1699712520]
 
-[node name="player" parent="." unique_id=1009051723 instance=ExtResource("1_o5qli")]
+[node name="player" parent="." unique_id=1009051723 groups=["player"] instance=ExtResource("1_o5qli")]
 position = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1417818942]
@@ -30,3 +31,6 @@ offset_right = 16.0
 offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Enemies" parent="." unique_id=1902566483 instance=ExtResource("2_0wfyh")]
+position = Vector2(445, 191)
