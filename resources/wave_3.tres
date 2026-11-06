@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://df22bablhln6r"]
+
+[ext_resource type="Script" uid="uid://b0kh54hy5m40h" path="res://scripts/enemies/enemy_data.gd" id="1_4kduy"]
+[ext_resource type="Script" uid="uid://b2eu7e3eok2pb" path="res://scripts/enemies/wave_data.gd" id="2_ce5ec"]
+[ext_resource type="Resource" uid="uid://bqkj8mu1jld8s" path="res://resources/enemy_tank.tres" id="2_fvxll"]
+[ext_resource type="Resource" uid="uid://dwplef3fmmlra" path="res://resources/enemy_runner.tres" id="3_kxjco"]
+[ext_resource type="Resource" uid="uid://73ehhn1bpi8y" path="res://resources/enemy_grunt.tres" id="4_6ycdg"]
+
+[resource]
+script = ExtResource("2_ce5ec")
+enemy_types = Array[ExtResource("1_4kduy")]([ExtResource("2_fvxll"), ExtResource("3_kxjco"), ExtResource("4_6ycdg")])
+enemy_count = 14
+spawn_interval = 1.2
+delay_before = 3.0
+metadata/_custom_type_script = "uid://b2eu7e3eok2pb"
