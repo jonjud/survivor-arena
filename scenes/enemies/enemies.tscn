@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bwhd1wd8gigys" path="res://scripts/enemies/chase_state.gd" id="2_ayqi8"]
 [ext_resource type="Script" uid="uid://dbowrs87ka52x" path="res://scenes/enemies/attack_state.gd" id="4_ctrou"]
 [ext_resource type="Script" uid="uid://drq5f02ogh1mp" path="res://scenes/enemies/stunned_state.gd" id="5_ygmqc"]
+[ext_resource type="Script" uid="uid://b10hdqn74li8s" path="res://scripts/core/health_component.gd" id="6_q3ali"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
@@ -43,3 +44,7 @@ script = ExtResource("4_ctrou")
 
 [node name="Stunned" type="Node" parent="StateMachine" unique_id=1343510819]
 script = ExtResource("5_ygmqc")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=52495467]
+script = ExtResource("6_q3ali")
+max_health = 3
