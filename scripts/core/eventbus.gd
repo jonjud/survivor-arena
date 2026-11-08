@@ -14,3 +14,4 @@ signal projectile_fired
 signal enemy_damaged               
 
 signal player_damaged
+signal enemy_died(at_position: Vector2, color: Color)  #  ศัตรูตายที่ไหน สีอะไร (ไว้ทำเอฟเฟกต์)

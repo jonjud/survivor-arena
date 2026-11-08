@@ -11,4 +11,5 @@ speed = 35.0
 damage = 2
 color = Color(0.9019608, 0.4117647, 0.98039216, 1)
 texture = ExtResource("2_082kv")
+particle_color = Color(0.7539397, 0.4919107, 0.9923565, 1)
 metadata/_custom_type_script = "uid://b0kh54hy5m40h"

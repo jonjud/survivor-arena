@@ -43,9 +43,10 @@ func _on_damaged(_amount: int) -> void:
 	stun()
 
 
-# NEW ตาย -> พิมพ์ข้อความแล้วลบตัวเอง
 func _on_died() -> void:
-	EventBus.enemy_killed.emit(data.score_value if data else 0)  # 🆕 แทน killed
+	var tint: Color = data.particle_color if data else Color.WHITE
+	EventBus.enemy_died.emit(global_position, tint)  # 🆕
+	EventBus.enemy_killed.emit(data.score_value if data else 0)
 	queue_free()
 
 

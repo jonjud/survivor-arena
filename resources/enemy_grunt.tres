@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_tg8iq")
 texture = ExtResource("2_6bk0k")
+particle_color = Color(1, 0.49748176, 0.4304652, 1)
 metadata/_custom_type_script = "uid://b0kh54hy5m40h"

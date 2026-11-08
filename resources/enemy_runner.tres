@@ -11,4 +11,5 @@ speed = 110.0
 color = Color(1, 0.64705884, 0, 1)
 size = 12.0
 texture = ExtResource("2_x5v3b")
+particle_color = Color(0.85465276, 0.70468, 0.24121967, 1)
 metadata/_custom_type_script = "uid://b0kh54hy5m40h"

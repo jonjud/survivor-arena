@@ -9,3 +9,4 @@ extends Resource
 @export var size: float = 16.0  #  ขนาดกล่อง (pixel)
 @export var score_value: int = 10
 @export var texture: Texture2D  #  รูปศัตรู (แทน color)
+@export var particle_color: Color = Color.WHITE  # สีเศษตอนตาย
