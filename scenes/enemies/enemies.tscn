@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dbowrs87ka52x" path="res://scenes/enemies/attack_state.gd" id="4_ctrou"]
 [ext_resource type="Script" uid="uid://drq5f02ogh1mp" path="res://scenes/enemies/stunned_state.gd" id="5_ygmqc"]
 [ext_resource type="Script" uid="uid://b10hdqn74li8s" path="res://scripts/core/health_component.gd" id="6_q3ali"]
+[ext_resource type="Script" uid="uid://dg1vfpgi32n3k" path="res://scripts/core/hit_flash.gd" id="7_txako"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
@@ -36,3 +37,8 @@ script = ExtResource("5_ygmqc")
 [node name="HealthComponent" type="Node" parent="." unique_id=52495467]
 script = ExtResource("6_q3ali")
 max_health = 3
+
+[node name="HitFlash" type="Node" parent="." unique_id=723309298 node_paths=PackedStringArray("health", "sprite")]
+script = ExtResource("7_txako")
+health = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")

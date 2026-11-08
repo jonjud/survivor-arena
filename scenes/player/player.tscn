@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b10hdqn74li8s" path="res://scripts/core/health_component.gd" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bumrmv3vo4nfi" path="res://assets/sprites/player.png" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://dpsua8xhmtoy8" path="res://scripts/player/shake_camera.gd" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://dg1vfpgi32n3k" path="res://scripts/core/hit_flash.gd" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
@@ -28,3 +29,8 @@ script = ExtResource("4_p47bc")
 [node name="HealthComponent" type="Node" parent="." unique_id=1743661200]
 script = ExtResource("3_gmlin")
 max_health = 5
+
+[node name="HitFlash" type="Node" parent="." unique_id=1894342475 node_paths=PackedStringArray("health", "sprite")]
+script = ExtResource("6_75vfm")
+health = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
