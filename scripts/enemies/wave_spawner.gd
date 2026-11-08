@@ -2,7 +2,6 @@ class_name WaveSpawner
 extends Node2D
 ## เล่นคลื่นศัตรูจาก WaveData เรียงตามลำดับ
 
-signal wave_started(wave_number: int)  # ไว้ใช้กับ UI ใน task ถัดไป
 
 @export var enemy_scene: PackedScene
 @export var waves: Array[WaveData] = []
@@ -18,7 +17,7 @@ var _timer: float = 0.0
 
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("player") as Node2D
-	_start_next_wave()
+	_start_next_wave.call_deferred()  # 🆕 เลื่อนไป 1 เฟรม ให้ HUD ต่อสัญญาณทัน
 
 
 func _process(delta: float) -> void:
@@ -46,8 +45,7 @@ func _start_next_wave() -> void:
 	_wave = waves[mini(wave_number, waves.size()) - 1]
 	_spawned = 0
 	_timer = _wave.delay_before
-	wave_started.emit(wave_number)
-	print("เริ่มคลื่นที่ ", wave_number)  # ชั่วคราว ไว้เช็ก
+	EventBus.wave_started.emit(wave_number)  # NEW แทน wave_started.emit(...)
 
 
 func _spawn_enemy() -> void:

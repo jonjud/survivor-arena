@@ -15,9 +15,12 @@ func _init() -> void:
 
 func _ready() -> void:
 	EventBus.enemy_killed.connect(add_score)
-	# ประกาศค่าเริ่มต้นหลังทุก node _ready เสร็จ (ไม่พึ่งลำดับ node ใน scene)
+	EventBus.player_died.connect(_on_player_died)  # NEW
 	_emit_initial_values.call_deferred()
 
+# NEW ผู้เล่นตาย -> ประกาศผลรอบนี้ให้ UI
+func _on_player_died() -> void:
+	EventBus.run_ended.emit(score, is_new_best)
 
 func add_score(amount: int) -> void:
 	score += amount

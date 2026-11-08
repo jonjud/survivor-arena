@@ -1,7 +1,11 @@
 extends Node
 ## Autoload: ศูนย์กลางสัญญาณระดับเกม ไม่มีตรรกะ มีแต่ signal
-## ผู้ส่งเรียก EventBus.xxx.emit() ผู้ฟังเรียก EventBus.xxx.connect()
 
-signal enemy_killed(score_value: int)  # มีศัตรูตาย พร้อมคะแนนที่ได้
-signal score_changed(score: int)       # คะแนนรอบนี้เปลี่ยน
-signal high_score_changed(high_score: int)  # สถิติสูงสุดเปลี่ยน
+signal enemy_killed(score_value: int)
+signal score_changed(score: int)
+signal high_score_changed(high_score: int)
+
+signal player_health_changed(current: int, maximum: int)  # 🆕 ไว้ใช้กับ HP bar
+signal player_died                                        # 🆕
+signal wave_started(wave_number: int)                     # 🆕
+signal run_ended(score: int, is_new_best: bool)           # 🆕 จบรอบ (ประกาศโดย ScoreKeeper)

@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal died  # NEW Player ส่งสัญญาณต่อให้ระบบภายนอก (UI) ฟัง
 
 @export var speed: float = 150.0
 @export var projectile_scene: PackedScene
@@ -13,8 +12,18 @@ var _cooldown_left: float = 0.0
 
 
 func _ready() -> void:
-	_health.died.connect(_on_died)  # NEW
+	_health.died.connect(_on_died)
+	_health.health_changed.connect(_on_health_changed)  #
+	_announce_health.call_deferred()                    #  ประกาศค่าเริ่มต้นหลังทุกฝ่ายต่อสัญญาณเสร็จ
 
+
+# ส่งต่อเลือดผู้เล่นขึ้น bus
+func _on_health_changed(current: int, maximum: int) -> void:
+	EventBus.player_health_changed.emit(current, maximum)
+
+#NEW
+func _announce_health() -> void:
+	EventBus.player_health_changed.emit(_health.current_health, _health.max_health)
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector(
@@ -36,8 +45,7 @@ func _shoot() -> void:
 	get_tree().current_scene.add_child(projectile)
 
 
-# NEW ตาย -> ส่งสัญญาณแล้วหยุดทำงาน (ไม่ลบตัว เพื่อให้กล้องยังอยู่)
 func _on_died() -> void:
-	died.emit()
+	EventBus.player_died.emit()  # NEW แทน died.emit()
 	set_physics_process(false)
 	visible = false
