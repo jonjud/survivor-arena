@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cckfa6nbhv6e3"]
+
+[ext_resource type="Script" uid="uid://dd1akovns4xb1" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1227473679]
+process_mode = 3
+layer = 10
+script = ExtResource("1_6tw0m")
+
+[node name="Control" type="Control" parent="." unique_id=1138710403]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=224382559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101960786, 0.101960786, 0.18039216, 0.6)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1783796414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -23.5
+offset_right = 31.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Control/VBoxContainer" unique_id=1399356198]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer" unique_id=276905529]
+layout_mode = 2
+text = "PLAY"
+
+[node name="MainMenuButton" type="Button" parent="Control/VBoxContainer" unique_id=1439382880]
+layout_mode = 2
+text = "Main Menu"
