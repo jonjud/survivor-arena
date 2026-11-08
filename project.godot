@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="arena-survivor"
-run/main_scene="uid://doj1c0i357fbt"
+run/main_scene="uid://djc70mw7hobxl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
