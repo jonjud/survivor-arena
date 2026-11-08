@@ -57,11 +57,6 @@ func _spawn_enemy() -> void:
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.data = _wave.enemy_types.pick_random()  # ตั้งก่อน add_child
 	enemy.global_position = _random_edge_position()
-	enemy.global_position = _random_edge_position()
-	# NEW ต่อสัญญาณคะแนนเข้า ScoreKeeper
-	var keeper: ScoreKeeper = get_tree().get_first_node_in_group("score_keeper") as ScoreKeeper
-	if keeper:
-		enemy.killed.connect(keeper.add_score)
 	get_tree().current_scene.add_child(enemy)
 
 

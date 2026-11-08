@@ -40,14 +40,8 @@ func _on_health_changed(current: int, maximum: int) -> void:
 
 # NEW
 func _connect_score() -> void:
-	var keeper: ScoreKeeper = get_tree().get_first_node_in_group("score_keeper") as ScoreKeeper
-	if keeper == null:
-		push_warning("HUD: ไม่พบ ScoreKeeper ใน group 'score_keeper'")
-		return
-	keeper.score_changed.connect(_on_score_changed)
-	_on_score_changed(keeper.score)
-	keeper.high_score_changed.connect(_on_high_score_changed)  # NEW
-	_on_high_score_changed(keeper.high_score)                  # NEW
+	EventBus.score_changed.connect(_on_score_changed)
+	EventBus.high_score_changed.connect(_on_high_score_changed)              # NEW
 
 
 

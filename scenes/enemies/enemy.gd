@@ -11,7 +11,7 @@ var damage: int
 @onready var _health: HealthComponent = $HealthComponent
 @onready var _color_rect: ColorRect = $ColorRect
 @onready var _collision: CollisionShape2D = $CollisionShape2D
-signal killed(score_value: int)
+
 
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player") as Node2D
@@ -46,7 +46,7 @@ func _on_damaged(_amount: int) -> void:
 
 # NEW ตาย -> พิมพ์ข้อความแล้วลบตัวเอง
 func _on_died() -> void:
-	killed.emit(data.score_value if data else 0)  # NEW
+	EventBus.enemy_killed.emit(data.score_value if data else 0)  # 🆕 แทน killed
 	queue_free()
 
 
