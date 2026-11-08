@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dwplef3fmmlra"]
 
 [ext_resource type="Script" uid="uid://b0kh54hy5m40h" path="res://scripts/enemies/enemy_data.gd" id="1_l1dk5"]
+[ext_resource type="Texture2D" uid="uid://b75w7hc3tdjxj" path="res://assets/sprites/runner.png" id="2_x5v3b"]
 
 [resource]
 script = ExtResource("1_l1dk5")
@@ -9,4 +10,5 @@ max_health = 1
 speed = 110.0
 color = Color(1, 0.64705884, 0, 1)
 size = 12.0
+texture = ExtResource("2_x5v3b")
 metadata/_custom_type_script = "uid://b0kh54hy5m40h"

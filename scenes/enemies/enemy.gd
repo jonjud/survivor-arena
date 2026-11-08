@@ -9,7 +9,7 @@ var damage: int
 
 @onready var _state_machine: StateMachine = $StateMachine
 @onready var _health: HealthComponent = $HealthComponent
-@onready var _color_rect: ColorRect = $ColorRect
+@onready var _sprite: Sprite2D = $Sprite2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 
 
@@ -27,11 +27,9 @@ func _apply_data() -> void:
 	damage = data.damage
 	_health.max_health = data.max_health
 	_health.current_health = data.max_health
-	_color_rect.color = data.color
-	# NEW ปรับขนาดภาพและ collision ตามชนิด
-	_color_rect.size = Vector2(data.size, data.size)
-	_color_rect.position = -_color_rect.size / 2.0
-	var shape: RectangleShape2D = RectangleShape2D.new()  # สร้างใหม่ทุกตัว
+	_sprite.texture = data.texture  # 🆕 แทนการตั้งสีและขนาด ColorRect
+	# ปรับขนาด collision ตามชนิด (สร้าง shape ใหม่ทุกตัว ไม่แชร์กัน)
+	var shape: RectangleShape2D = RectangleShape2D.new()
 	shape.size = Vector2(data.size, data.size)
 	_collision.shape = shape
 
@@ -41,6 +39,7 @@ func stun() -> void:
 
 # NEW โดนดาเมจแต่ยังไม่ตาย -> stun
 func _on_damaged(_amount: int) -> void:
+	EventBus.enemy_damaged.emit()  # 🆕
 	stun()
 
 

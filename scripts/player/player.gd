@@ -13,9 +13,12 @@ var _cooldown_left: float = 0.0
 
 func _ready() -> void:
 	_health.died.connect(_on_died)
-	_health.health_changed.connect(_on_health_changed)  #
-	_announce_health.call_deferred()                    #  ประกาศค่าเริ่มต้นหลังทุกฝ่ายต่อสัญญาณเสร็จ
+	_health.health_changed.connect(_on_health_changed)
+	_health.damaged.connect(_on_damaged)  # NEW
+	_announce_health.call_deferred()                  #  ประกาศค่าเริ่มต้นหลังทุกฝ่ายต่อสัญญาณเสร็จ
 
+func _on_damaged(_amount: int) -> void:
+	EventBus.player_damaged.emit()
 
 # ส่งต่อเลือดผู้เล่นขึ้น bus
 func _on_health_changed(current: int, maximum: int) -> void:
@@ -43,9 +46,11 @@ func _shoot() -> void:
 	projectile.global_position = global_position
 	projectile.direction = (get_global_mouse_position() - global_position).normalized()
 	get_tree().current_scene.add_child(projectile)
+	EventBus.projectile_fired.emit()
 
 
 func _on_died() -> void:
-	EventBus.player_died.emit()  # NEW แทน died.emit()
+	EventBus.player_damaged.emit()  # NEW ท่าโดนจนตายก็สั่นด้วย (damaged ไม่ยิงตอนตาย)
+	EventBus.player_died.emit()
 	set_physics_process(false)
 	visible = false

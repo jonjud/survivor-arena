@@ -10,6 +10,10 @@
 [ext_resource type="Script" uid="uid://br50i2agp7c30" path="res://scripts/ui/score_keeper.gd" id="10_choun"]
 [ext_resource type="Resource" uid="uid://vqrpw6k4seep" path="res://resources/wave_2.tres" id="10_trceg"]
 [ext_resource type="Resource" uid="uid://df22bablhln6r" path="res://resources/wave_3.tres" id="11_a8y0u"]
+[ext_resource type="Script" uid="uid://bgg37nb3gce12" path="res://scripts/game_audio.gd" id="11_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://bxs4ht5o8m2ae" path="res://assets/audio/shoot.wav" id="12_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://dk1bmdjmxh5ma" path="res://assets/audio/hit.wav" id="13_muem4"]
+[ext_resource type="AudioStream" uid="uid://chl4gmkjhxm0h" path="res://assets/audio/death.wav" id="14_dp3eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(32, 96)
@@ -51,3 +55,10 @@ waves = Array[ExtResource("8_ya4ey")]([ExtResource("9_eb6dy"), ExtResource("10_t
 
 [node name="ScoreKeeper" type="Node" parent="." unique_id=546810486 groups=["score_keeper"]]
 script = ExtResource("10_choun")
+
+[node name="GameAudio" type="Node" parent="." unique_id=825893451]
+script = ExtResource("11_jkv2x")
+shoot_sfx = ExtResource("12_jbj1t")
+hit_sfx = ExtResource("13_muem4")
+death_sfx = ExtResource("14_dp3eg")
+metadata/_custom_type_script = "uid://bgg37nb3gce12"

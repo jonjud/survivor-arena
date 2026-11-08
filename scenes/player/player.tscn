@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cxa81nviecxsi" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://c5f84dv1dosak" path="res://scenes/player/projectile.tscn" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://b10hdqn74li8s" path="res://scripts/core/health_component.gd" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bumrmv3vo4nfi" path="res://assets/sprites/player.png" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://dpsua8xhmtoy8" path="res://scripts/player/shake_camera.gd" id="4_p47bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(16, 16)
@@ -15,22 +17,13 @@ projectile_scene = ExtResource("2_dovo2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626594305]
 shape = SubResource("RectangleShape2D_htemk")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1017573145]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014252304]
+texture = ExtResource("3_lvxji")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=854761197]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+script = ExtResource("4_p47bc")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1743661200]
 script = ExtResource("3_gmlin")

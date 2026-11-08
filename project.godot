@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveSystem="*uid://cr7ctdowk8miw"
 EventBus="*uid://0maah0bkqiht"
+SfxPlayer="*uid://d2qgjndvn8v3a"
 
 [display]
 
