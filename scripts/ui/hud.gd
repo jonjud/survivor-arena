@@ -6,13 +6,14 @@ extends CanvasLayer
 @onready var _wave_label: Label = $TopRight/VBoxContainer/WaveLabel
 @onready var _score_label: Label = $TopRight/VBoxContainer/ScoreLabel
 @onready var _best_label: Label = $TopRight/VBoxContainer/BestLabel
-
+@onready var _hint_label: Label = $HintLabel  
 
 func _ready() -> void:
 	EventBus.player_health_changed.connect(_on_health_changed)
 	EventBus.wave_started.connect(_on_wave_started)
 	EventBus.score_changed.connect(_on_score_changed)
 	EventBus.high_score_changed.connect(_on_high_score_changed)
+	EventBus.projectile_fired.connect(_hint_label.hide, CONNECT_ONE_SHOT)
 
 
 func _on_health_changed(current: int, maximum: int) -> void:

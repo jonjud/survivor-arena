@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://chl4gmkjhxm0h" path="res://assets/audio/death.wav" id="14_dp3eg"]
 [ext_resource type="Script" uid="uid://b3yduo34if6du" path="res://scripts/game_effects.gd" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cckfa6nbhv6e3" path="res://scenes/ui/pause_menu.tscn" id="16_jbj1t"]
+[ext_resource type="Script" uid="uid://ccpiuj22jvfvb" path="res://scripts/game_cursor.gd" id="17_muem4"]
+[ext_resource type="Texture2D" uid="uid://ckvn53fr78im" path="res://assets/sprites/crosshair.png" id="18_dp3eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(32, 96)
@@ -68,3 +70,7 @@ death_sfx = ExtResource("14_dp3eg")
 script = ExtResource("15_jkv2x")
 
 [node name="PauseMenu" parent="." unique_id=1227473679 instance=ExtResource("16_jbj1t")]
+
+[node name="GameCursor" type="Node" parent="." unique_id=1819870063]
+script = ExtResource("17_muem4")
+crosshair = ExtResource("18_dp3eg")
