@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://doj1c0i357fbt"]
 
+[ext_resource type="Texture2D" uid="uid://d2ll2v4mork6k" path="res://assets/sprites/floor_tile.png" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://c6qudl3bil3e2" path="res://scenes/player/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://7coaacbh1ss1" path="res://scenes/enemies/enemies.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://c6nq8e5dn3j21" path="res://scripts/core/tile_background.gd" id="2_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cawaim5v1cdhy" path="res://scenes/ui/GameOverScreen.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://ddqrvkbe18ph6" path="res://scripts/enemies/wave_spawner.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://b2eu7e3eok2pb" path="res://scripts/enemies/wave_data.gd" id="8_ya4ey"]
@@ -19,34 +21,14 @@
 [ext_resource type="Script" uid="uid://ccpiuj22jvfvb" path="res://scripts/game_cursor.gd" id="17_muem4"]
 [ext_resource type="Texture2D" uid="uid://ckvn53fr78im" path="res://assets/sprites/crosshair.png" id="18_dp3eg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
-size = Vector2(32, 96)
-
 [node name="main" type="Node2D" unique_id=1699712520]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1108708398]
+texture = ExtResource("1_gqmmt")
+script = ExtResource("2_yc10j")
 
 [node name="player" parent="." unique_id=1009051723 instance=ExtResource("1_o5qli")]
 position = Vector2(320, 180)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1417818942]
-position = Vector2(240, 175)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=358045797]
-shape = SubResource("RectangleShape2D_htemk")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=106704923]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -48.0
-offset_right = 16.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="GameOverScreen" parent="." unique_id=327024309 instance=ExtResource("3_sugp2")]
 
