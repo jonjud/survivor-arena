@@ -36,6 +36,10 @@ player="group for player"
 wave_spawner=""
 score_keeper=""
 
+[gui]
+
+theme/custom="uid://dhhnvo83ogytx"
+
 [input]
 
 move_left={
