@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var _score_label: Label = $TopRight/VBoxContainer/ScoreLabel
 @onready var _best_label: Label = $TopRight/VBoxContainer/BestLabel
 @onready var _hint_label: Label = $HintLabel  
+@onready var _health_text: Label = $MarginContainer/HealthBar/HealthText  # NEW
 
 func _ready() -> void:
 	EventBus.player_health_changed.connect(_on_health_changed)
@@ -19,6 +20,7 @@ func _ready() -> void:
 func _on_health_changed(current: int, maximum: int) -> void:
 	_health_bar.max_value = maximum
 	_health_bar.value = current
+	_health_text.text = "%d / %d" % [current, maximum]  # New
 
 
 func _on_wave_started(wave: int) -> void:
